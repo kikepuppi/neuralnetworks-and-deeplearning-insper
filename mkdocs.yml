@@ -1,0 +1,73 @@
+site_name: ANN & DL Portfolio
+site_description: Artificial Neural Networks and Deep Learning exercises, Insper 2026.2
+site_author: Henrique Puppi
+site_url: https://kikepuppi.github.io/neuralnetworks-and-deeplearning-insper/
+repo_url: https://github.com/kikepuppi/neuralnetworks-and-deeplearning-insper
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Light mode
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+
+nav:
+  - Home: index.md
+  - Exercises:
+      - Data: exercises/data/index.md
+      - Perceptron: exercises/perceptron/index.md
+      - MLP: exercises/mlp/index.md
+  - Projects: projects/index.md
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: suffix
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: pt
+          name: Português
+          build: true
+          site_name: Portfólio ANN & DL
+          site_description: Exercícios de Artificial Neural Networks and Deep Learning, Insper 2026.2
+          nav_translations:
+            Home: Início
+            Exercises: Exercícios
+            Data: Dados
+            Projects: Projetos
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
