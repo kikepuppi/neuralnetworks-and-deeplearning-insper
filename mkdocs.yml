@@ -3,6 +3,7 @@ site_description: Artificial Neural Networks and Deep Learning exercises, Insper
 site_author: Henrique Puppi
 site_url: https://kikepuppi.github.io/neuralnetworks-and-deeplearning-insper/
 repo_url: https://github.com/kikepuppi/neuralnetworks-and-deeplearning-insper
+repo_name: kikepuppi/neuralnetworks-and-deeplearning-insper
 
 theme:
   name: material
@@ -28,7 +29,12 @@ nav:
       - Data: exercises/data/index.md
       - Perceptron: exercises/perceptron/index.md
       - MLP: exercises/mlp/index.md
-  - Projects: projects/index.md
+  - Project:
+      - Overview: projects/index.md
+      - 1. EDA: projects/eda/index.md
+      - 2. Classification: projects/classification/index.md
+      - 2. Regression: projects/regression/index.md
+      - 3. Generative: projects/generative/index.md
 
 plugins:
   - search
@@ -50,7 +56,11 @@ plugins:
             Home: Início
             Exercises: Exercícios
             Data: Dados
-            Projects: Projetos
+            Project: Projeto
+            Overview: Visão geral
+            2. Classification: 2. Classificação
+            2. Regression: 2. Regressão
+            3. Generative: 3. Generativo
 
 markdown_extensions:
   - admonition
