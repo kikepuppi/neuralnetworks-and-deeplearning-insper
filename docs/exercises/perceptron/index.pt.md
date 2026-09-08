@@ -5,7 +5,7 @@ ai_use: "none"
 
 # Exercício: Perceptron
 
-> Entrega: 10/09. O prazo é o horário do último commit nesta pasta.
+> Entrega: 22/09/2026 (terça), commits até 23:59. O prazo é o horário do último commit nesta pasta.
 
 ## Exercício 1
 

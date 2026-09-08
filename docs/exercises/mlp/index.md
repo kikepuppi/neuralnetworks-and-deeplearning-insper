@@ -5,7 +5,7 @@ ai_use: "none"
 
 # Exercise: MLP
 
-> Due: Sep 22. The deadline is the timestamp of the last commit in this folder.
+> Due: Oct 13, 2026 (Tuesday), commits until 23:59. The deadline is the timestamp of the last commit in this folder.
 
 ## Exercise 1
 

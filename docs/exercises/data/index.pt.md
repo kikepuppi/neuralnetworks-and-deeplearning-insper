@@ -5,7 +5,7 @@ ai_use: "none"
 
 # Exercício: Dados
 
-> Entrega: 01/09. O prazo é o horário do último commit nesta pasta.
+> Entrega: 10/09/2026 (quinta), commits até 23:59. O prazo é o horário do último commit nesta pasta.
 
 ## Exercício 1
 

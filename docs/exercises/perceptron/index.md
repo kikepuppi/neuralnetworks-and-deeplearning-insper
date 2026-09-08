@@ -5,7 +5,7 @@ ai_use: "none"
 
 # Exercise: Perceptron
 
-> Due: Sep 10. The deadline is the timestamp of the last commit in this folder.
+> Due: Sep 22, 2026 (Tuesday), commits until 23:59. The deadline is the timestamp of the last commit in this folder.
 
 ## Exercise 1
 
