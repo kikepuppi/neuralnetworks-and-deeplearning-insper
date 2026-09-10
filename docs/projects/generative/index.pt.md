@@ -5,15 +5,7 @@ ai_use: "none"
 
 # 3. Generativo
 
-> Entrega: 20/11/2026 (sexta), commits até 23:59. O prazo é o horário do último commit nesta pasta.
-
-!!! info "Equipe"
-
-    | Nome completo | GitHub |
-    |---|---|
-    | | |
-
-    Dataset e decisões: [página do projeto](../index.md).
+> Entrega: 20/11/2026 (sexta), commits até 23:59.
 
 ## 1. Objetivo
 

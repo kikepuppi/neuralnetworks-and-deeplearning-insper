@@ -6,7 +6,7 @@ Portfólio de Henrique Puppi. Insper, 2026.2.
 
 | Exercício | Slug | Entrega | Status |
 |---|---|---|---|
-| [Dados](exercises/data/index.md) | `data` | 10/09 | Não iniciado |
+| [Dados](exercises/data/index.md) | `data` | 10/09 | **Concluído** |
 | [Perceptron](exercises/perceptron/index.md) | `perceptron` | 22/09 | Não iniciado |
 | [MLP](exercises/mlp/index.md) | `mlp` | 13/10 | Não iniciado |
 

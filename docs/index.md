@@ -6,7 +6,7 @@ Portfolio by Henrique Puppi. Insper, 2026.2.
 
 | Exercise | Slug | Due | Status |
 |---|---|---|---|
-| [Data](exercises/data/index.md) | `data` | Sep 10 | Not started |
+| [Data](exercises/data/index.md) | `data` | Sep 10 | **Done** |
 | [Perceptron](exercises/perceptron/index.md) | `perceptron` | Sep 22 | Not started |
 | [MLP](exercises/mlp/index.md) | `mlp` | Oct 13 | Not started |
 

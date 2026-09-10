@@ -3,9 +3,9 @@ exercise: mlp
 ai_use: "none"
 ---
 
-# Exercício: MLP
+# Exercício 3: MLP
 
-> Entrega: 13/10/2026 (terça), commits até 23:59. O prazo é o horário do último commit nesta pasta.
+> Entrega: 13/10/2026 (terça), commits até 23:59.
 
 ## Exercício 1
 
@@ -16,8 +16,6 @@ ai_use: "none"
 ### B: [descrição do item B]
 
 [texto]
-
-![Figura 1](figures/fig1.png)
 
 ## Código
 

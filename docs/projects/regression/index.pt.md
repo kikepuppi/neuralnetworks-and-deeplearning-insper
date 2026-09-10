@@ -5,15 +5,7 @@ ai_use: "none"
 
 # 2. Regressão
 
-> Entrega: 05/11/2026 (quinta), commits até 23:59. O prazo é o horário do último commit nesta pasta.
-
-!!! info "Equipe"
-
-    | Nome completo | GitHub |
-    |---|---|
-    | | |
-
-    Dataset e decisões: [página do projeto](../index.md).
+> Entrega: 05/11/2026 (quinta), commits até 23:59.
 
 ## 1. Escolha do dataset
 

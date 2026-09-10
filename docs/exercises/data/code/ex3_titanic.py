@@ -47,6 +47,7 @@ def split(df):
 
     print(f"train: {X_train.shape[0]} rows, Transported = True: {y_train.mean():.4f}")
     print(f"test:  {X_test.shape[0]} rows, Transported = True: {y_test.mean():.4f}")
+    print(f"FoodCourt mean on train: {X_train['FoodCourt'].mean():.4f}")
 
     return X_train, X_test
 

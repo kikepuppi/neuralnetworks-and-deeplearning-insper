@@ -1,8 +1,7 @@
 # ANN & DL (Insper 2026.2)
 
-Exercise portfolio for Artificial Neural Networks and Deep Learning, published with
-MkDocs Material on GitHub Pages. The site is bilingual: English at the root, Portuguese
-under `/pt/`.
+Portfolio for Artificial Neural Networks and Deep Learning, published with MkDocs
+Material on GitHub Pages. English at the root, Portuguese under `/pt/`.
 
 ## Run locally
 
@@ -18,18 +17,23 @@ mkdocs serve
 docs/
   index.md / index.pt.md
   exercises/
-    data/       index.md + index.pt.md + code/ + figures/
+    data/       index.md + index.pt.md + code/ + figures/ + data/
     perceptron/ index.md + index.pt.md + code/ + figures/
     mlp/        index.md + index.pt.md + code/ + figures/
-  projects/index.md
+  projects/
+    index.md
+    eda/            index.md + code/ + figures/
+    classification/ index.md + code/ + figures/
+    regression/     index.md + code/ + figures/
+    generative/     index.md + code/ + figures/
 mkdocs.yml
 requirements.txt
 ```
 
-Untagged files (`index.md`) are English, the default language. Files suffixed `.pt.md`
-are the Portuguese translation. A page missing in one language falls back to the other.
+Files named `index.md` are English, the default language. Files named `index.pt.md` are
+the Portuguese translation. A page missing in one language falls back to the other.
 
 ## Publishing
 
 `.github/workflows/pages.yml` builds and deploys on every push to `main`.
-Enable it under *Settings > Pages > Source: GitHub Actions*.
+Set *Settings > Pages > Source* to *GitHub Actions*.

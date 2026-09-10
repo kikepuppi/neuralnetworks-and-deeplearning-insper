@@ -5,15 +5,7 @@ ai_use: "none"
 
 # 2. Regression
 
-> Due: Nov 5, 2026 (Thursday), commits until 23:59. The deadline is the timestamp of the last commit in this folder.
-
-!!! info "Team"
-
-    | Full name | GitHub |
-    |---|---|
-    | | |
-
-    Dataset and decisions: [project page](../index.md).
+> Due: Nov 5, 2026 (Thursday), commits until 23:59.
 
 ## 1. Dataset choice
 

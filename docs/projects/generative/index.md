@@ -5,15 +5,7 @@ ai_use: "none"
 
 # 3. Generative
 
-> Due: Nov 20, 2026 (Friday), commits until 23:59. The deadline is the timestamp of the last commit in this folder.
-
-!!! info "Team"
-
-    | Full name | GitHub |
-    |---|---|
-    | | |
-
-    Dataset and decisions: [project page](../index.md).
+> Due: Nov 20, 2026 (Friday), commits until 23:59.
 
 ## 1. Objective
 

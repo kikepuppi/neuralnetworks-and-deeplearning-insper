@@ -5,15 +5,7 @@ ai_use: "none"
 
 # 1. EDA: Análise Exploratória
 
-> Entrega: 17/09/2026 (quinta), commits até 23:59. O prazo é o horário do último commit nesta pasta.
-
-!!! info "Equipe"
-
-    | Nome completo | GitHub |
-    |---|---|
-    | | |
-
-    Dataset e decisões: [página do projeto](../index.md).
+> Entrega: 17/09/2026 (quinta), commits até 23:59.
 
 ## 1. Dataset
 

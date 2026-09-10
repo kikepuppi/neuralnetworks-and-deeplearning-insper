@@ -5,15 +5,7 @@ ai_use: "none"
 
 # 1. EDA: Exploratory Data Analysis
 
-> Due: Sep 17, 2026 (Thursday), commits until 23:59. The deadline is the timestamp of the last commit in this folder.
-
-!!! info "Team"
-
-    | Full name | GitHub |
-    |---|---|
-    | | |
-
-    Dataset and decisions: [project page](../index.md).
+> Due: Sep 17, 2026 (Thursday), commits until 23:59.
 
 ## 1. Dataset
 

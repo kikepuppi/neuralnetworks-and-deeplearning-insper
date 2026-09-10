@@ -3,9 +3,9 @@ exercise: mlp
 ai_use: "none"
 ---
 
-# Exercise: MLP
+# Exercise 3: MLP
 
-> Due: Oct 13, 2026 (Tuesday), commits until 23:59. The deadline is the timestamp of the last commit in this folder.
+> Due: Oct 13, 2026 (Tuesday), commits until 23:59.
 
 ## Exercise 1
 
@@ -16,8 +16,6 @@ ai_use: "none"
 ### B: [item B description]
 
 [text]
-
-![Figure 1](figures/fig1.png)
 
 ## Code
 
