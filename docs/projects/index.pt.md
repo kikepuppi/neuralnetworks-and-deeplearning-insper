@@ -6,7 +6,7 @@ Um projeto, um dataset, três entregas.
 
 | Nome completo | E-mail | GitHub |
 |---|---|---|
-| Henrique Puppi | henrique.puppi@igcp.com.br | [kikepuppi](https://github.com/kikepuppi) |
+| Henrique Puppi | henriquebps@al.insper.edu.br | [kikepuppi](https://github.com/kikepuppi) |
 | | | |
 | | | |
 
