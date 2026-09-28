@@ -17,11 +17,11 @@ python docs/exercises/perceptron/code/ex1_separable.py
 python docs/exercises/perceptron/code/ex2_overlap.py
 ```
 
-Cada script começa o estado aleatório com `np.random.default_rng(42)` e usa esse mesmo gerador até o fim, então os números saem idênticos em toda execução. O perceptron é escrito do zero com numpy. Nenhuma biblioteca fornece o modelo.
+Cada script começa o estado aleatório com `np.random.default_rng(42)` e usa esse mesmo gerador até o fim, então os números saem idênticos em toda execução. O perceptron é escrito do zero com numpy, nenhuma biblioteca fornece o modelo.
 
-A mesma classe `Perceptron` é usada nos dois exercícios, com o pocket já dentro dela. O Exercício 1 não precisa do pocket, então só ignora, e o Exercício 2 reusa a classe sem mudar nada.
+A mesma classe `Perceptron` é usada nos dois exercícios, com o pocket já dentro dela. O Exercício 1 não precisa do pocket, então só ignora, e o Exercício 2 reusa a classe sem mudanças.
 
-O que deu mais trabalho não foi o laço de treino e sim ler os resultados. No Exercício 2 uma acurácia de 50% parece um bug, e o jeito de ver que não é conferir onde a fronteira parou, em vez de olhar só o número.
+A parte difícil foi ler os resultados. No Exercício 2 uma acurácia de 50% parece um bug, e o único jeito de ver que não é olhar onde a fronteira parou.
 
 ## Exercício 1
 Dados separáveis: o caso para o qual o perceptron foi feito.
@@ -59,8 +59,6 @@ A época 26 é a que não fez nenhum update e parou o laço. A última mudança 
 
 ![Figura 2](figures/fig2.png)
 
-A Figura 2 não tem marcação de erro porque não existe nenhum.
-
 ![Figura 3](figures/fig3.png)
 
 ### D: Análise
@@ -69,13 +67,13 @@ A Figura 2 não tem marcação de erro porque não existe nenhum.
 
 Porque um acerto dá `y - ŷ = 0` e não produz update. Só os erros mexem nos pesos, então o laço é movido pelos próprios erros e se desliga sozinho quando não há mais nenhum.
 
-O número de updates por época já é pequeno no começo e depois zera:
+O número de updates por época:
 
 | Época | 1 | 5 | 10 | 15 | 20 | 23 | 24 | 25 | 26 |
 |---|---|---|---|---|---|---|---|---|---|
 | Updates | 3 | 3 | 4 | 3 | 2 | 2 | 3 | 1 | **0** |
 
-Não é uma queda suave. Fica entre 2 e 4 na maior parte do treino, cai para 1 na época 25 e para 0 na 26. As nuvens estão longe uma da outra, então só um punhado de pontos perto da fronteira erra, e cada passada empurra a reta um pouco mais até nenhum errar.
+Não é uma queda suave. Fica entre 2 e 4 na maior parte do treino, cai para 1 na época 25 e para 0 na 26. As nuvens estão longe uma da outra, então só uns poucos pontos perto da fronteira erram, e cada passada move a reta até nenhum errar.
 
 #### Rode o treino de novo com `η = 1.0`, sem mudar mais nada. Reporte o número de épocas e a acurácia final, e compare a direção de `w` com a do treino com `η = 0.01`
 
@@ -86,7 +84,7 @@ Os dois treinos partem do mesmo `w` e do mesmo `b`. Só o `η` muda.
 | `η = 0.01` | [0.0505, 0.0289] | -0.2500 | **26** | **1.0000** | [0.8681, 0.4963] |
 | `η = 1.00` | [5.8706, 3.3592] | -31.0000 | **37** | **1.0000** | [0.8679, 0.4967] |
 
-As duas direções estão a **0.02 grau** uma da outra, ou seja, são a mesma direção na prática. As fronteiras ainda são retas diferentes, porque o deslocamento muda: `b / ‖w‖` é -4.2979 contra -4.5832. E o número de épocas muda, 26 contra 37.
+As duas direções estão a **0.02 grau** uma da outra, ou seja, são a mesma direção. As fronteiras ainda são retas diferentes, porque o deslocamento muda: `b / ‖w‖` é -4.2979 contra -4.5832. O número de épocas também muda, 26 contra 37.
 
 #### O que o `η` controla, sabendo que cada update soma `η x` a pesos que começaram com magnitude de mais ou menos 0.01?
 
@@ -94,7 +92,7 @@ Ele controla o tamanho do passo em relação aos pesos iniciais, que são a úni
 
 A `‖x‖` média aqui é 4.6543, então um update soma mais ou menos `0.01 × 4.65 = 0.047` com `η = 0.01` e mais ou menos `4.65` com `η = 1.0`. O `w` inicial tem magnitude 0.009303. Então o começo aleatório é uns 20% de um passo no treino lento e 0.2% de um passo no rápido.
 
-É por isso que os dois treinos levam números diferentes de épocas e terminam apontando para o mesmo lado. Os dados decidem a direção. O `η` decide o quanto o começo aleatório ainda pesa no caminho.
+É por isso que os dois treinos levam números diferentes de épocas e ainda terminam apontando para o mesmo lado: a direção vem dos dados, não do `η`.
 
 #### Mostre algebricamente que treinar duas vezes, a partir de `w = 0` e `b = 0`, com `η₁` e `η₂`, dá pesos que diferem só pelo fator `η₂ / η₁`
 
@@ -180,7 +178,7 @@ Os números dizem o mesmo:
 
 O valor do pocket é praticamente zero, então aquela fronteira passa pelo meio dos dados. O valor final é claramente positivo, então o centro da nuvem está do lado positivo e quase tudo em volta também.
 
-O laço deixa a fronteira lá porque não tem motivo para não deixar. Ele não minimiza nada. Ele reage ao último ponto que viu, e as amostras estão guardadas com a classe 0 primeiro e a classe 1 depois, então a última coisa que toda época faz é pegar uma sequência de erros da classe 1 e empurrar a fronteira para longe.
+O laço não minimiza nada, ele só reage ao último ponto que viu. As amostras estão guardadas com a classe 0 primeiro e a classe 1 depois, então toda época termina numa sequência de erros da classe 1 que empurra a fronteira para longe.
 
 #### Compare a Figura 3 com a Figura 6. O que o teorema de convergência do perceptron garante, e qual das suas hipóteses este conjunto viola?
 
@@ -197,8 +195,6 @@ Nenhum dos dois.
 Mais épocas não ajudam porque não existe estado em que o laço para. Sempre tem algum ponto errado, então toda época produz updates e os pesos continuam se mexendo. A Figura 6 mostra a acurácia atual parada em uns 50% da época 20 até a 100, e o pocket não melhora desde a época 18.
 
 Um `η` menor não ajuda porque ele escala `w` e `b` juntos. A razão entre os dois passos continua `1 : ‖x‖` seja qual for o `η`, então o deslocamento fica para trás exatamente igual. É o mesmo argumento do começo em zero do Exercício 1: encolher todo passo pelo mesmo fator leva os pesos para uma escala menor, não para uma reta melhor.
-
-O que ajuda é o pocket, e ele não é uma mudança na regra de update. Ele só para de jogar fora os bons pesos pelos quais o laço passa.
 
 ### Código
 

@@ -17,11 +17,11 @@ python docs/exercises/perceptron/code/ex1_separable.py
 python docs/exercises/perceptron/code/ex2_overlap.py
 ```
 
-Each script starts its random state with `np.random.default_rng(42)` and uses that one generator until the end, so the numbers come out identical on every run. The perceptron is written from scratch with numpy. No library supplies the model.
+Each script starts its random state with `np.random.default_rng(42)` and uses that one generator until the end, so the numbers come out identical on every run. The perceptron is written from scratch with numpy, no library supplies the model.
 
-The same `Perceptron` class is used in both exercises, with the pocket already inside it. Exercise 1 does not need the pocket, so it simply ignores it, and Exercise 2 reuses the class without a single change.
+The same `Perceptron` class is used in both exercises, with the pocket already inside it. Exercise 1 does not need the pocket, so it simply ignores it, and Exercise 2 reuses the class without changes.
 
-What took the longest was not the training loop but reading the results. In Exercise 2 a 50% accuracy looks like a bug, and the way to tell that it is not is to check where the boundary ended up instead of looking at the number alone.
+The hard part was reading the results. In Exercise 2 a 50% accuracy looks like a bug, and the only way to tell that it is not is to look at where the boundary ended up.
 
 ## Exercise 1
 Separable data: the case the perceptron was designed for.
@@ -59,8 +59,6 @@ The 26th epoch is the one that made no update and stopped the loop. The last wei
 
 ![Figure 2](figures/fig2.png)
 
-Figure 2 has no misclassified markers because there are none.
-
 ![Figure 3](figures/fig3.png)
 
 ### D: Analysis
@@ -69,13 +67,13 @@ Figure 2 has no misclassified markers because there are none.
 
 Because a correct prediction gives `y - ŷ = 0` and produces no update. Only mistakes move the weights, so the loop is driven by its own errors and stops itself once there are none.
 
-The number of updates per epoch is small from the start and then dies out:
+The number of updates per epoch:
 
 | Epoch | 1 | 5 | 10 | 15 | 20 | 23 | 24 | 25 | 26 |
 |---|---|---|---|---|---|---|---|---|---|
 | Updates | 3 | 3 | 4 | 3 | 2 | 2 | 3 | 1 | **0** |
 
-It is not a smooth decline. It sits between 2 and 4 for most of the run, drops to 1 in epoch 25 and to 0 in epoch 26. The clouds are far apart, so only a handful of points near the boundary are ever wrong, and each pass nudges the line a little further until none of them are.
+It is not a smooth decline. It sits between 2 and 4 for most of the run, drops to 1 in epoch 25 and to 0 in epoch 26. The clouds are far apart, so only a few points near the boundary are ever wrong, and each pass moves the line until none of them are.
 
 #### Re-run the training with `η = 1.0`, changing nothing else. Report the epoch count and the final accuracy, and compare the direction of `w` against the `η = 0.01` run
 
@@ -86,7 +84,7 @@ Both runs start from the same `w` and `b`. Only `η` changes.
 | `η = 0.01` | [0.0505, 0.0289] | -0.2500 | **26** | **1.0000** | [0.8681, 0.4963] |
 | `η = 1.00` | [5.8706, 3.3592] | -31.0000 | **37** | **1.0000** | [0.8679, 0.4967] |
 
-The two directions are **0.02 degrees** apart, so they are the same direction for any practical purpose. The boundaries are still different lines, because the offset differs: `b / ‖w‖` is -4.2979 against -4.5832. And the epoch counts differ, 26 against 37.
+The two directions are **0.02 degrees** apart, so they are the same direction. The boundaries are still different lines, because the offset differs: `b / ‖w‖` is -4.2979 against -4.5832. The epoch counts also differ, 26 against 37.
 
 #### What does `η` control, given that every update adds `η x` to weights that started at a magnitude of about 0.01?
 
@@ -94,7 +92,7 @@ It controls the size of a step relative to the starting weights, which are the o
 
 The mean `‖x‖` here is 4.6543, so one update adds about `0.01 × 4.65 = 0.047` at `η = 0.01` and about `4.65` at `η = 1.0`. The initial `w` has magnitude 0.009303. So the random start is about 20% of one step in the slow run and 0.2% of one step in the fast run.
 
-That is why the two runs take different numbers of epochs while ending up pointing the same way. The data decides the direction. `η` decides how much the random start still matters along the way.
+That is why the two runs take different numbers of epochs and still end up pointing the same way: the direction comes from the data, not from `η`.
 
 #### Show algebraically that training twice, from `w = 0` and `b = 0`, with `η₁` and `η₂`, produces weights that differ only by the factor `η₂ / η₁`
 
@@ -180,7 +178,7 @@ The numbers say the same thing:
 
 The pocket value is essentially zero, so that boundary passes through the middle of the data. The final value is clearly positive, so the centre of the cloud is on the positive side and so is nearly everything around it.
 
-The loop leaves it there because it has no reason not to. It is not minimizing anything. It reacts to whichever point it saw last, and the samples are stored class 0 first and class 1 second, so the last thing every epoch does is take a run of class 1 mistakes and push the boundary away.
+The loop is not minimizing anything, it only reacts to the last point it saw. The samples are stored class 0 first and class 1 second, so every epoch ends on a run of class 1 mistakes that pushes the boundary away.
 
 #### Compare Figure 3 with Figure 6. What does the perceptron convergence theorem guarantee, and which of its assumptions does this dataset violate?
 
@@ -197,8 +195,6 @@ Neither.
 More epochs do not help because there is no state where the loop stops. Some point is always misclassified, so every epoch produces updates and the weights keep moving. Figure 6 shows the current accuracy flat at about 50% from epoch 20 to epoch 100, and the pocket has not improved since epoch 18.
 
 A smaller `η` does not help because it scales `w` and `b` together. The ratio between the two steps stays `1 : ‖x‖` whatever `η` is, so the offset falls behind exactly as much. That is the same argument as the zero start in Exercise 1: shrinking every step by the same factor moves the weights to a smaller scale, not to a better line.
-
-What does help is the pocket, and it is not a change to the update rule. It just stops throwing away the good weights the loop passes through.
 
 ### Code
 
